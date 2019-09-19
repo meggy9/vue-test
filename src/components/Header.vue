@@ -1,17 +1,23 @@
 <template>
     <div class="header">
         <v-row>
-            <v-col cols="12">
-                <v-toolbar color="purple" dark cols="6">
-                    <v-tabs cols="6">
-                        <v-tab>
-                            <router-link to="/stocks">Stocks</router-link>
+            <v-col>
+                <v-toolbar color="purple" dark>
+                    <v-tabs background-color="transparent">
+                        <v-tab to="/stocks">
+                            Stocks
                         </v-tab>
-                        <v-tab>
-                            <router-link to="/portfolio">Portfolio</router-link>
+                        <v-tab to="/portfolio">
+                            Portfolio
                         </v-tab>
                     </v-tabs>
-                    <v-btn>End day</v-btn>
+                    <v-spacer></v-spacer>
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on }">
+                            <v-btn v-on="on" depressed class="pink white--text">End day</v-btn>
+                        </template>
+                        <span>End day button</span>
+                    </v-tooltip>
                 </v-toolbar>
             </v-col>
         </v-row>
@@ -22,7 +28,8 @@
     export default {
         data() {
             return {
-                hi: 'Hello World!!!'
+                hi: 'Hello World!!!',
+
             }
         },
         methods: {
